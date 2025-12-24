@@ -26,20 +26,49 @@ import java.util.Scanner;
 public class P1546_평균 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt();
+    int N = sc.nextInt(); // N 개
     int A[] = new int[N];
     for (int i = 0; i < N; i++) {
-      A[i] = sc.nextInt();
+      A[i] = sc.nextInt();  // N 개 만큼 입력 받음
     }
     long sum = 0;
     long max = 0;
     for (int i = 0; i < N; i++) {
+      System.out.println("A[i] = " + A[i]);
       if (A[i] > max)
-        max = A[i];
-      sum = sum + A[i];
+        max = A[i]; // 가장 높은 점수를 받은것을 기준으로 max 값을줌
+      sum = sum + A[i]; // 받은점수 다 합산
+
+      System.out.println("i = " + i);
+      System.out.println("max = " + max);
     }
     // 각각 계산이 아닌 수식 변환을 통해 총합에 대해 한번만 계산해주면 로직이 간단해 집니다.
     System.out.println(sum * 100.0 / max / N);
+    // 18000 / 70 / 4
+  }
+
+
+  public static void main2(String[] args){
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt();
+    int A[] = new int[N];
+
+    for(int i = 0; i < N; i++){
+      A[i] = sc.nextInt();  // N 개만큼 입력받기
+    }
+
+    long sum = 0;
+    long max = 0;
+
+    for(int i = 0; i < N; i++){
+      if (A[i] > max){
+        max = A[i];
+        sum += A[i];
+      }
+    }
+
+    System.out.println(sum * 100.0 / max / N);
+    
   }
 
 }
